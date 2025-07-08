@@ -67,6 +67,10 @@ The keymap includes dynamic RGB underglow that changes color based on the active
 
 The RGB system preserves brightness levels when switching layers and automatically starts in solid white mode.
 
+![Demo](demo.gif)
+
+*The demo above shows the RGB underglow changing colors when switching between layers - from white (BASE) to orange (NUMS) to red (MEDIA), providing visual feedback for the current active layer.*
+
 ## Encoder Configuration
 
 Four encoders are supported with RGB control mappings:
