@@ -23,3 +23,6 @@ COMMAND_ENABLE = no
 
 # Enable Raw HID for advanced HUD communication
 RAW_ENABLE = yes
+
+# Enable combo functionality
+COMBO_ENABLE = yes

@@ -23,9 +23,10 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
 │SHIFT│  Z  │  X  │  C  │  V  │  B  │     │   │     │  N  │  M  │  ,  │  .  │  /  │TO(1)│
 └─────┴─────┴─────┼─────┼─────┼─────┤     │   │     ├─────┼─────┼─────┼─────┴─────┴─────┘
-                  │CTRL │ GUI │ SPC │     │   │     │ ENT │ GUI │ ALT │
+                  │CTRL │ GUI │ SPC*│     │   │     │ ENT*│ GUI │ ALT │
                   └─────┴─────┴─────┘     │   │     └─────┴─────┴─────┘
 ```
+*Combo: SPC + ENT = Direct access to SYSTEM layer
 
 ### Layer 1 (NUMS) - Orange RGB
 ```
@@ -36,7 +37,7 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
 │SHIFT│     │     │     │     │     │     │   │     │     │     │  -  │  =  │  \  │TO(2)│
 └─────┴─────┴─────┼─────┼─────┼─────┤     │   │     ├─────┼─────┼─────┼─────┴─────┴─────┘
-                  │CTRL │ GUI │ SPC │     │   │     │ ENT │ GUI │CTRL │
+                  │CTRL │ GUI │ SPC*│     │   │     │ ENT*│ GUI │CTRL │
                   └─────┴─────┴─────┘     │   │     └─────┴─────┴─────┘
 ```
 
@@ -47,20 +48,20 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
 │     │     │     │     │     │VOL+ │RW   │   │BRI- │RGB+ │     │     │     │     │TO(1)│
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│TO(3)│     │     │     │     │VOL- │     │   │     │RGB- │     │     │     │     │TO(0)│
+│     │     │     │     │     │VOL- │     │   │     │RGB- │     │     │     │     │TO(0)│
 └─────┴─────┴─────┼─────┼─────┼─────┤     │   │     ├─────┼─────┼─────┼─────┴─────┴─────┘
-                  │     │     │     │     │   │     │     │     │     │
+                  │     │     │ SPC*│     │   │     │ ENT*│     │     │
                   └─────┴─────┴─────┘     │   │     └─────┴─────┴─────┘
 ```
 
 ### Layer 3 (SYSTEM) - Blue RGB
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-│     │     │     │     │     │     │     │   │     │     │     │     │     │     │     │
+│TO(0)│     │     │     │     │     │     │   │     │     │     │     │     │     │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
 │     │     │     │     │     │     │     │   │     │     │     │     │     │     │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │     │     │     │     │     │   │     │     │     │     │     │     │TO(0)│
+│     │     │     │     │     │     │     │   │     │     │     │     │     │     │     │
 └─────┴─────┴─────┼─────┼─────┼─────┤     │   │     ├─────┼─────┼─────┼─────┴─────┴─────┘
                   │     │     │BOOT │     │   │     │BOOT │     │     │
                   └─────┴─────┴─────┘     │   │     └─────┴─────┴─────┘
@@ -69,12 +70,12 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 The SYSTEM layer is designed for system-level functions and bootloader access. It's intentionally isolated from normal typing layers to prevent accidental activation of critical functions.
 
 **How to Access:**
-- From BASE layer: `TO(1)` → NUMS → `TO(2)` → MEDIA → `TO(3)` → SYSTEM
-- To return: Press `TO(0)` (bottom-right corner) to return directly to BASE layer
+- **Direct access**: Press `Space + Enter` simultaneously from any layer to jump directly to SYSTEM
+- To return: Press `TO(0)` (top-left corner) to return directly to BASE layer
 
 **Key Functions:**
 - **`QK_BOOT`** (thumb keys): Puts the keyboard into bootloader mode for firmware flashing
-- **`TO(0)`** (bottom-right): Returns to BASE layer
+- **`TO(0)`** (top-left): Returns to BASE layer
 - **All other keys**: Disabled to prevent accidental inputs
 
 **Usage Notes:**
@@ -123,6 +124,7 @@ Four encoders are supported with RGB control mappings:
 - Extra Keys (Media/Consumer)
 - Mouse Keys
 - N-Key Rollover
+- Key Combos (Space + Enter → SYSTEM layer)
 
 ## Installation
 
