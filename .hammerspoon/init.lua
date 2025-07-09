@@ -2,27 +2,49 @@
 local currentLayer = "BASE"
 local consoleTask = nil
 
+-- Common toast styling configuration
+local function showToast(message, fillColor, duration)
+    duration = duration or 2
+    hs.alert.show(message, {
+        textColor = {white = 1, alpha = 0.95},
+        fillColor = fillColor,
+        strokeColor = {white = 1, alpha = 0.3},
+        strokeWidth = 1.5,
+        radius = 18,
+        textSize = 14,
+        textFont = "Helvetica Neue",
+        fadeInDuration = 0.3,
+        fadeOutDuration = 0.8,
+        atScreenEdge = 0,
+        padding = 15
+    }, duration)
+end
+
+-- Status toast with different text size for notifications
+local function showStatusToast(message, fillColor, duration)
+    duration = duration or 2
+    hs.alert.show(message, {
+        textColor = {white = 1, alpha = 0.95},
+        fillColor = fillColor,
+        strokeColor = {white = 1, alpha = 0.3},
+        strokeWidth = 1.5,
+        radius = 18,
+        textSize = 13,
+        textFont = "Helvetica Neue",
+        fadeInDuration = 0.3,
+        fadeOutDuration = 0.8,
+        atScreenEdge = 0,
+        padding = 15
+    }, duration)
+end
+
 function showLayerToast(layer)
     print("showLayerToast called with: " .. layer)
     
     if layer ~= currentLayer then
         currentLayer = layer
         print("Layer changed to: " .. layer)
-        
-        -- Modern glass effect toast
-        hs.alert.show("⌨️ " .. layer, {
-            textColor = {white = 1, alpha = 0.95},
-            fillColor = getLayerColor(layer),
-            strokeColor = {white = 1, alpha = 0.3},
-            strokeWidth = 1.5,
-            radius = 18,
-            textSize = 20,
-            textFont = "Menlo",
-            fadeInDuration = 0.3,
-            fadeOutDuration = 0.8,
-            atScreenEdge = 0,
-            padding = 25
-        }, 2)
+        showToast("⌨️ " .. layer, getLayerColor(layer), 2)
     else
         print("Layer unchanged: " .. layer)
     end
@@ -91,62 +113,26 @@ function startQMKConsoleMonitoring()
     print("Console task started: " .. tostring(success))
     
     if success then
-        -- Modern startup notification
-        hs.alert.show("🎯 QMK Layer Monitor Active", {
-            textColor = {white = 1, alpha = 0.95},
-            fillColor = {red = 0.1, green = 0.7, blue = 0.3, alpha = 0.85},
-            strokeColor = {white = 1, alpha = 0.3},
-            strokeWidth = 1.5,
-            radius = 18,
-            textSize = 18,
-            textFont = "SF Pro Display",
-            fadeInDuration = 0.3,
-            fadeOutDuration = 0.8,
-            atScreenEdge = 0,
-            padding = 25
-        }, 2)
+        showStatusToast("🎯 QMK Layer Monitor Active", {red = 0.1, green = 0.7, blue = 0.3, alpha = 0.85}, 2)
     else
-        hs.alert.show("❌ Failed to start QMK Console", {
-            textColor = {white = 1, alpha = 0.95},
-            fillColor = {red = 0.8, green = 0.2, blue = 0.2, alpha = 0.85},
-            strokeColor = {white = 1, alpha = 0.3},
-            strokeWidth = 1.5,
-            radius = 18,
-            textSize = 18,
-            textFont = "SF Pro Display",
-            fadeInDuration = 0.3,
-            fadeOutDuration = 0.8,
-            atScreenEdge = 0,
-            padding = 25
-        }, 3)
+        showStatusToast("❌ Failed to start QMK Console", {red = 0.8, green = 0.2, blue = 0.2, alpha = 0.85}, 3)
     end
 end
 
+-- Helper function for layer simulation hotkeys
+local function bindLayerHotkey(key, layer, description)
+    hs.hotkey.bind({"cmd", "alt", "ctrl"}, key, function()
+        print(description or ("Simulating " .. layer .. " layer"))
+        showLayerToast(layer)
+    end)
+end
+
 -- Test functions with modern styling
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "T", function()
-    print("Manual toast test")
-    showLayerToast("TEST")
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "1", function()
-    print("Simulating BASE layer")
-    showLayerToast("BASE")
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "2", function()
-    print("Simulating NUMS layer")
-    showLayerToast("NUMS")
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "3", function()
-    print("Simulating MEDIA layer")
-    showLayerToast("MEDIA")
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "4", function()
-    print("Simulating SYSTEM layer")
-    showLayerToast("SYSTEM")
-end)
+bindLayerHotkey("T", "TEST", "Manual toast test")
+bindLayerHotkey("1", "BASE")
+bindLayerHotkey("2", "NUMS")
+bindLayerHotkey("3", "MEDIA")
+bindLayerHotkey("4", "SYSTEM")
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R", function()
     print("Restarting QMK console monitoring")
@@ -157,19 +143,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "S", function()
     if consoleTask then
         consoleTask:terminate()
         print("QMK Console stopped")
-        hs.alert.show("⏹️ QMK Console Stopped", {
-            textColor = {white = 1, alpha = 0.95},
-            fillColor = {red = 0.6, green = 0.6, blue = 0.6, alpha = 0.85},
-            strokeColor = {white = 1, alpha = 0.3},
-            strokeWidth = 1.5,
-            radius = 18,
-            textSize = 18,
-            textFont = "SF Pro Display",
-            fadeInDuration = 0.3,
-            fadeOutDuration = 0.8,
-            atScreenEdge = 0,
-            padding = 25
-        }, 1)
+        showStatusToast("⏹️ QMK Console Stopped", {red = 0.6, green = 0.6, blue = 0.6, alpha = 0.85}, 1)
     end
 end)
 
