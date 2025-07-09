@@ -4,7 +4,7 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 
 ## Features
 
-- **6 Layers**: BASE, NUMS, MEDIA, and 3 additional customizable layers(for future use)
+- **6 Layers**: BASE, NUMS, MEDIA, SYSTEM (with bootloader access), and 2 additional customizable layers (for future use)
 - **RGB Underglow**: Layer-based color indication with brightness preservation
 - **Encoder Support**: 4 encoders with RGB control mappings
 - **Media Keys**: Volume, mute, fast forward, rewind, and brightness controls
@@ -32,9 +32,9 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐
 │  `  │  1  │  2  │  3  │  4  │  5  │     │   │     │  6  │  7  │  8  │  9  │  0  │BSPC │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ TAB │     │     │     │     │     │     │   │     │     │     │     │  [  │  ]  │  \  │
+│ TAB │     │     │     │     │     │     │   │     │     │     │     │  [  │  ]  │TO(0)│
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│SHIFT│     │     │     │     │     │     │   │     │     │     │     │  -  │  =  │TO(2)│
+│SHIFT│     │     │     │     │     │     │   │     │     │     │  -  │  =  │  \  │TO(2)│
 └─────┴─────┴─────┼─────┼─────┼─────┤     │   │     ├─────┼─────┼─────┼─────┴─────┴─────┘
                   │CTRL │ GUI │ SPC │     │   │     │ ENT │ GUI │CTRL │
                   └─────┴─────┴─────┘     │   │     └─────┴─────┴─────┘
@@ -45,15 +45,28 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐
 │     │     │     │     │     │MUTE │FF   │   │BRI+ │RGB  │     │     │     │     │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │     │     │     │VOL+ │RW   │   │BRI- │RGB+ │     │     │     │     │     │
+│     │     │     │     │     │VOL+ │RW   │   │BRI- │RGB+ │     │     │     │     │TO(1)│
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │     │     │     │VOL- │     │   │     │RGB- │     │     │     │     │TO(0)│
+│TO(3)│     │     │     │     │VOL- │     │   │     │RGB- │     │     │     │     │TO(0)│
+└─────┴─────┴─────┼─────┼─────┼─────┤     │   │     ├─────┼─────┼─────┼─────┴─────┴─────┘
+                  │     │     │     │     │   │     │     │     │     │
+                  └─────┴─────┴─────┘     │   │     └─────┴─────┴─────┘
+```
+
+### Layer 3 (SYSTEM) - Blue RGB
+```
+┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐
+│     │     │     │     │     │     │     │   │     │     │     │     │     │     │     │
+├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
+│     │     │     │     │     │     │     │   │     │     │     │     │     │     │     │
+├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
+│     │     │     │     │     │     │     │   │     │     │     │     │     │     │TO(0)│
 └─────┴─────┴─────┼─────┼─────┼─────┤     │   │     ├─────┼─────┼─────┼─────┴─────┴─────┘
                   │     │     │BOOT │     │   │     │BOOT │     │     │
                   └─────┴─────┴─────┘     │   │     └─────┴─────┴─────┘
 ```
 
-### Layers 3-5 - Blue RGB
+### Layers 4-5 - Blue RGB
 Currently undefined and available for customization.
 
 ## RGB Underglow
@@ -63,7 +76,8 @@ The keymap includes dynamic RGB underglow that changes color based on the active
 - **Layer 0 (BASE)**: White
 - **Layer 1 (NUMS)**: Orange
 - **Layer 2 (MEDIA)**: Red
-- **Layers 3-5**: Blue
+- **Layer 3 (SYSTEM)**: Blue
+- **Layers 4-5**: Blue
 
 The RGB system preserves brightness levels when switching layers and automatically starts in solid white mode.
 
@@ -117,7 +131,7 @@ Four encoders are supported with RGB control mappings:
 
 The keymap is designed to be easily customizable:
 
-- **Layers 3-5** are currently empty and ready for your custom layouts
+- **Layers 4-5** are currently empty and ready for your custom layouts
 - **RGB colors** can be modified in the `layer_state_set_user()` function
 - **Encoder mappings** can be adjusted in the `encoder_map` array
 - **Tapping terms** and other timing can be adjusted in `config.h`
