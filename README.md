@@ -66,6 +66,22 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
                   └─────┴─────┴─────┘     │   │     └─────┴─────┴─────┘
 ```
 
+The SYSTEM layer is designed for system-level functions and bootloader access. It's intentionally isolated from normal typing layers to prevent accidental activation of critical functions.
+
+**How to Access:**
+- From BASE layer: `TO(1)` → NUMS → `TO(2)` → MEDIA → `TO(3)` → SYSTEM
+- To return: Press `TO(0)` (bottom-right corner) to return directly to BASE layer
+
+**Key Functions:**
+- **`QK_BOOT`** (thumb keys): Puts the keyboard into bootloader mode for firmware flashing
+- **`TO(0)`** (bottom-right): Returns to BASE layer
+- **All other keys**: Disabled to prevent accidental inputs
+
+**Usage Notes:**
+- Use this layer when you need to flash new firmware or troubleshoot the keyboard
+- The bootloader keys are positioned on both thumb keys for easy access
+- Once in bootloader mode, you can flash firmware using QMK tools
+
 ### Layers 4-5 - Blue RGB
 Currently undefined and available for customization.
 
