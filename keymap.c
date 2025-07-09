@@ -17,23 +17,30 @@ void keyboard_post_init_user(void) {
 }
 
 // Change RGB color based on layer while preserving brightness
+// Add console debug output for layer changes
 layer_state_t layer_state_set_user(layer_state_t state) {
-    uint8_t current_val = rgblight_get_val();  // Get current brightness
+    uint8_t current_val = rgblight_get_val();
+    uint8_t layer = get_highest_layer(state);
 
-    switch (get_highest_layer(state)) {
+    // Console output for debugging/HUD
+    switch (layer) {
         case _BASE:
-            rgblight_sethsv(0, 0, current_val);      // White - preserve brightness
+            rgblight_sethsv(0, 0, current_val);
+            uprintf("LAYER:BASE\n");
             break;
         case _NUMS:
-            rgblight_sethsv(15, 255, current_val);   // Orange - preserve brightness
+            rgblight_sethsv(15, 255, current_val);
+            uprintf("LAYER:NUMS\n");
             break;
         case _MEDIA:
-            rgblight_sethsv(0, 255, current_val);    // Red - preserve brightness
+            rgblight_sethsv(0, 255, current_val);
+            uprintf("LAYER:MEDIA\n");
             break;
         case _SYSTEM:
         case _LAYER4:
         case _LAYER5:
-            rgblight_sethsv(170, 255, current_val);  // Blue - preserve brightness
+            rgblight_sethsv(170, 255, current_val);
+            uprintf("LAYER:SYSTEM\n");
             break;
     }
     return state;
@@ -62,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_SYSTEM] = LAYOUT_split_3x6_3_ex2(
-        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+        TO(0),   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   TO(0),
                                             KC_NO,   KC_NO,   QK_BOOT,     QK_BOOT, KC_NO,   KC_NO

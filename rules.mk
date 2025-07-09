@@ -18,5 +18,8 @@ OLED_ENABLE = no
 
 # Additional features
 NKRO_ENABLE = yes
-CONSOLE_ENABLE = no
+CONSOLE_ENABLE = yes
 COMMAND_ENABLE = no
+
+# Enable Raw HID for advanced HUD communication
+RAW_ENABLE = yes
