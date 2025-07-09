@@ -151,3 +151,30 @@ The keymap is designed to be easily customizable:
 - **RGB colors** can be modified in the `layer_state_set_user()` function
 - **Encoder mappings** can be adjusted in the `encoder_map` array
 - **Tapping terms** and other timing can be adjusted in `config.h`
+- **Hammerspoon toast styling** can be modified in the `showToast()` and `showStatusToast()` functions
+
+## Hammerspoon Integration
+
+This project includes a Hammerspoon script (`.hammerspoon/init.lua`) that provides real-time layer monitoring and visual feedback on macOS:
+
+### Features
+- **Layer Change Notifications**: Displays toast notifications when switching between keyboard layers
+- **Visual Feedback**: Color-coded toasts matching the RGB underglow colors:
+  - BASE layer: Dark glass effect
+  - NUMS layer: Orange glass effect  
+  - MEDIA layer: Red glass effect
+  - SYSTEM layer: Blue glass effect
+- **QMK Console Monitoring**: Automatically monitors QMK console output for layer changes
+- **Hotkey Testing**: Keyboard shortcuts for testing layer notifications
+
+### Setup
+1. Install [Hammerspoon](https://www.hammerspoon.org/)
+2. Copy the `.hammerspoon/init.lua` file to your Hammerspoon config directory
+3. Reload Hammerspoon configuration
+4. The script will automatically start monitoring when Hammerspoon loads
+
+### Hotkeys
+- `Cmd+Alt+Ctrl+T`: Test toast notification
+- `Cmd+Alt+Ctrl+1-4`: Simulate layer changes (BASE, NUMS, MEDIA, SYSTEM)
+- `Cmd+Alt+Ctrl+R`: Restart QMK console monitoring
+- `Cmd+Alt+Ctrl+S`: Stop QMK console monitoring
