@@ -4,17 +4,12 @@
 #define RGBLIGHT_TIMEOUT 300000      // 5 minutes timeout
 #define RGBLIGHT_SLEEP              // Turn off when sleeping
 
-// RGB Underglow step values
-#define RGBLIGHT_HUE_STEP 10
-#define RGBLIGHT_SAT_STEP 8
-#define RGBLIGHT_VAL_STEP 8
-
-// Enable solid color AND rainbow swirl for ripple effect
-#define RGBLIGHT_EFFECT_STATIC_LIGHT
-#define RGBLIGHT_EFFECT_RAINBOW_SWIRL
-
-// Force RGB to start in solid mode
-#define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_STATIC_LIGHT
+#ifdef RGBLIGHT_ENABLE
+    // RGB Underglow step values
+    #define RGBLIGHT_HUE_STEP 10
+    #define RGBLIGHT_SAT_STEP 17
+    #define RGBLIGHT_VAL_STEP 17
+#endif
 
 // Encoder settings
 #define ENCODER_RESOLUTION 4
