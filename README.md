@@ -10,6 +10,8 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 - **Media Keys**: Volume, brightness, and playback controls
 - **Arrow Keys**: Dedicated cluster on base layer
 - **Mouse Keys** and **N-Key Rollover** support
+- **Tap Dance**: Double-tap shift for caps lock functionality
+- **Momentary Layer Access**: Hold-to-activate layer switching
 
 ## Layer Overview
 
@@ -26,23 +28,22 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
 │ TAB │  A  │  S  │  D  │  F  │  G  │ →   │   │ ↓   │  H  │  J  │  K  │  L  │  ;  │  '  │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│SHIFT│  Z  │  X  │  C  │  V  │  B  │     │   │     │  N  │  M  │  ,  │  .  │  /  │TO(1)│
+│SHIFT│  Z  │  X  │  C  │  V  │  B  │     │   │     │  N  │  M  │  ,  │  .  │  /  │MO(2)│
 └─────┴─────┴─────┼─────┼─────┼─────┤     │   │     ├─────┼─────┼─────┼─────┴─────┴─────┘
-                  │CTRL │ GUI │ SPC*│     │   │     │ ENT*│ GUI │ ALT │
+                  │CTRL │ GUI │ SPC*│     │   │     │ ENT*│MO(1)│ ALT │
                   └─────┴─────┴─────┘     │   │     └─────┴─────┴─────┘
 ```
-*Combo: SPC + ENT = Direct access to SYSTEM layer
 
 ### Layer 1 (NUMS)
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐
 │  `  │  1  │  2  │  3  │  4  │  5  │     │   │     │  6  │  7  │  8  │  9  │  0  │BSPC │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ TAB │     │     │     │     │     │     │   │     │     │     │     │  [  │  ]  │TO(0)│
+│ TAB │     │     │     │     │     │     │   │     │     │     │     │  [  │  ]  │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│SHIFT│     │     │     │     │     │     │   │     │     │     │  -  │  =  │  \  │TO(2)│
+│SHIFT│     │     │     │     │     │     │   │     │     │     │  -  │  =  │  \  │     │
 └─────┴─────┴─────┼─────┼─────┼─────┤     │   │     ├─────┼─────┼─────┼─────┴─────┴─────┘
-                  │CTRL │ GUI │ SPC*│     │   │     │ ENT*│ GUI │CTRL │
+                  │CTRL │ GUI │ SPC*│     │   │     │ ENT*│     │ ALT │
                   └─────┴─────┴─────┘     │   │     └─────┴─────┴─────┘
 ```
 
@@ -51,9 +52,9 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐
 │     │     │     │     │     │MUTE │FF   │   │BRI+ │RGB  │     │     │     │     │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │     │     │     │VOL+ │RW   │   │BRI- │RGB+ │     │     │     │     │TO(1)│
+│     │     │     │     │     │VOL+ │RW   │   │BRI- │RGB+ │     │     │     │     │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │     │     │     │VOL- │     │   │     │RGB- │     │     │     │     │TO(0)│
+│     │     │     │     │     │VOL- │     │   │     │RGB- │     │     │     │     │     │
 └─────┴─────┴─────┼─────┼─────┼─────┤     │   │     ├─────┼─────┼─────┼─────┴─────┴─────┘
                   │     │     │ SPC*│     │   │     │ ENT*│     │     │
                   └─────┴─────┴─────┘     │   │     └─────┴─────┴─────┘
@@ -73,6 +74,11 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 ```
 
 **Access:** Press `Space + Enter` simultaneously from any layer to jump directly to SYSTEM.
+
+**Layer Navigation:**
+- **MO(1)**: Hold to momentarily access NUMS layer
+- **MO(2)**: Hold to momentarily access MEDIA layer
+- **SPC+ENT Combo**: Direct access to SYSTEM layer
 
 **Key Functions:**
 - **`QK_BOOT`** (thumb keys): Enter bootloader mode for firmware flashing
@@ -97,11 +103,12 @@ Four encoders are supported with the following mappings:
 
 ## Configuration
 
-- **Tapping Term**: 200ms
+- **Tapping Term**: 500ms
 - **RGB Timeout**: 5 minutes
 - **Encoder Resolution**: 4
 - **Dynamic Layers**: 4
 - **Key Combos**: Space + Enter → SYSTEM layer
+- **Tap Dance**: Double-tap shift → Caps Lock
 
 ## Installation
 
@@ -129,6 +136,8 @@ The keymap is designed to be easily customizable:
 - **RGB colors** can be modified in the `layer_state_set_user()` function
 - **Encoder mappings** can be adjusted in the `encoder_map` array
 - **Tapping terms** and other timing can be adjusted in `config.h`
+- **Tap Dance actions** can be modified in the `tap_dance_actions` array
+- **Layer switching** can be changed from momentary (MO) to toggle (TO) in the keymap
 
 ## Hammerspoon Integration
 
@@ -140,11 +149,7 @@ This project includes a Hammerspoon script (`.hammerspoon/init.lua`) that provid
 
 ### Features
 - **Layer Change Notifications**: Displays toast notifications when switching between keyboard layers
-- **Visual Feedback**: Color-coded toasts matching the RGB underglow colors:
-  - BASE layer: Dark glass effect
-  - NUMS layer: Orange glass effect  
-  - MEDIA layer: Red glass effect
-  - SYSTEM layer: Blue glass effect
+- **Visual Feedback**: Color-coded toasts matching the RGB underglow colors
 - **QMK Console Monitoring**: Automatically monitors QMK console output for layer changes
 - **Hotkey Testing**: Keyboard shortcuts for testing layer notifications
 

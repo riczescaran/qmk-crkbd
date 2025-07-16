@@ -18,7 +18,7 @@
 #define DYNAMIC_KEYMAP_LAYER_COUNT 6
 
 // Tapping term
-#define TAPPING_TERM 200
+#define TAPPING_TERM 500
 
 // Mouse key settings
 #define MOUSEKEY_DELAY 5
