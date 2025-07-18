@@ -25,7 +25,7 @@ COMMAND_ENABLE = no
 RAW_ENABLE = yes
 
 # Enable combo functionality
-COMBO_ENABLE = yes
+COMBO_ENABLE = no
 
 # Enable tap dance functionality
 TAP_DANCE_ENABLE = yes

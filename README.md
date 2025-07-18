@@ -4,7 +4,7 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 
 ## Features
 
-- **4 Layers**: BASE, NUMS, MEDIA, SYSTEM (with bootloader access)
+- **3 Layers**: BASE, NUMS, SYSTEM (with bootloader access)
 - **RGB Underglow**: Layer-based color indication with brightness preservation
 - **4 Encoders**: RGB control mappings
 - **Media Keys**: Volume, brightness, and playback controls
@@ -18,8 +18,7 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 **RGB Colors by Layer:**
 - **Layer 0 (BASE)**: White
 - **Layer 1 (NUMS)**: Orange  
-- **Layer 2 (MEDIA)**: Red
-- **Layer 3 (SYSTEM)**: Blue
+- **Layer 2 (SYSTEM)**: Blue
 
 ### Layer 0 (BASE)
 ```
@@ -28,26 +27,26 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
 │ TAB │  A  │  S  │  D  │  F  │  G  │ →   │   │ ↓   │  H  │  J  │  K  │  L  │  ;  │  '  │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│SHIFT│  Z  │  X  │  C  │  V  │  B  │     │   │     │  N  │  M  │  ,  │  .  │  /  │MO(2)│
+│SFT/C│  Z  │  X  │  C  │  V  │  B  │     │   │     │  N  │  M  │  ,  │  .  │  /  │ ALT │
 └─────┴─────┴─────┼─────┼─────┼─────┤     │   │     ├─────┼─────┼─────┼─────┴─────┴─────┘
-                  │CTRL │ GUI │ SPC*│     │   │     │ ENT*│MO(1)│ ALT │
+                  │CTRL │ GUI │ SPC │     │   │     │ ENT │MO(1)│MO(2)│
                   └─────┴─────┴─────┘     │   │     └─────┴─────┴─────┘
 ```
 
 ### Layer 1 (NUMS)
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-│  `  │  1  │  2  │  3  │  4  │  5  │     │   │     │  6  │  7  │  8  │  9  │  0  │BSPC │
+│  `  │     │PGUP │     │     │     │     │   │     │  7  │  8  │  9  │  -  │  =  │BSPC │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ TAB │     │     │     │     │     │     │   │     │     │     │     │  [  │  ]  │     │
+│ TAB │HOME │PGDN │ END │     │     │     │   │     │  4  │  5  │  6  │  [  │  ]  │  \  │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│SHIFT│     │     │     │     │     │     │   │     │     │     │  -  │  =  │  \  │     │
+│SFT/C│     │     │     │     │     │     │   │     │  1  │  2  │  3  │     │     │ ALT │
 └─────┴─────┴─────┼─────┼─────┼─────┤     │   │     ├─────┼─────┼─────┼─────┴─────┴─────┘
-                  │CTRL │ GUI │ SPC*│     │   │     │ ENT*│     │ ALT │
+                  │CTRL │ GUI │ SPC │     │   │     │ ENT │     │  0  │
                   └─────┴─────┴─────┘     │   │     └─────┴─────┴─────┘
 ```
 
-### Layer 2 (MEDIA)
+### Layer 2 (SYSTEM)
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐
 │     │     │     │     │     │MUTE │FF   │   │BRI+ │RGB  │     │     │     │     │     │
@@ -56,33 +55,17 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
 │     │     │     │     │     │VOL- │     │   │     │RGB- │     │     │     │     │     │
 └─────┴─────┴─────┼─────┼─────┼─────┤     │   │     ├─────┼─────┼─────┼─────┴─────┴─────┘
-                  │     │     │ SPC*│     │   │     │ ENT*│     │     │
-                  └─────┴─────┴─────┘     │   │     └─────┴─────┴─────┘
-```
-
-### Layer 3 (SYSTEM)
-```
-┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-│TO(0)│     │     │     │     │     │     │   │     │     │     │     │     │     │     │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │     │     │     │     │     │   │     │     │     │     │     │     │     │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │     │     │     │     │     │   │     │     │     │     │     │     │     │
-└─────┴─────┴─────┼─────┼─────┼─────┤     │   │     ├─────┼─────┼─────┼─────┴─────┴─────┘
                   │     │     │BOOT │     │   │     │BOOT │     │     │
                   └─────┴─────┴─────┘     │   │     └─────┴─────┴─────┘
 ```
 
-**Access:** Press `Space + Enter` simultaneously from any layer to jump directly to SYSTEM.
-
 **Layer Navigation:**
 - **MO(1)**: Hold to momentarily access NUMS layer
-- **MO(2)**: Hold to momentarily access MEDIA layer
-- **SPC+ENT Combo**: Direct access to SYSTEM layer
+- **MO(2)**: Hold to momentarily access SYSTEM layer
 
 **Key Functions:**
 - **`QK_BOOT`** (thumb keys): Enter bootloader mode for firmware flashing
-- **`TO(0)`** (top-left): Return to BASE layer
+- **`SFT/C`**: Tap for Shift, double-tap for Caps Lock (tap dance)
 
 
 ## RGB Underglow
@@ -91,7 +74,7 @@ Dynamic RGB underglow changes color based on the active layer. The system preser
 
 ![Demo Underglow](demo/underglow.gif)
 
-*The demo above shows the RGB underglow changing colors when switching between layers - from white (BASE) to orange (NUMS) to red (MEDIA), providing visual feedback for the current active layer.*
+*The demo above shows the RGB underglow changing colors when switching between layers - from white (BASE) to orange (NUMS) to blue (SYSTEM), providing visual feedback for the current active layer.*
 
 ## Encoder Configuration
 
@@ -106,8 +89,7 @@ Four encoders are supported with the following mappings:
 - **Tapping Term**: 500ms
 - **RGB Timeout**: 5 minutes
 - **Encoder Resolution**: 4
-- **Dynamic Layers**: 4
-- **Key Combos**: Space + Enter → SYSTEM layer
+- **Dynamic Layers**: 3
 - **Tap Dance**: Double-tap shift → Caps Lock
 
 ## Installation
@@ -161,6 +143,6 @@ This project includes a Hammerspoon script (`.hammerspoon/init.lua`) that provid
 
 ### Hotkeys
 - `Cmd+Alt+Ctrl+T`: Test toast notification
-- `Cmd+Alt+Ctrl+1-4`: Simulate layer changes (BASE, NUMS, MEDIA, SYSTEM)
+- `Cmd+Alt+Ctrl+1-3`: Simulate layer changes (BASE, NUMS, SYSTEM)
 - `Cmd+Alt+Ctrl+R`: Restart QMK console monitoring
 - `Cmd+Alt+Ctrl+S`: Stop QMK console monitoring
