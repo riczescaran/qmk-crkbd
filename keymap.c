@@ -22,7 +22,7 @@ tap_dance_action_t tap_dance_actions[] = {
 void keyboard_post_init_user(void) {
     rgblight_enable();                          // Enable RGB
     rgblight_mode(RGBLIGHT_MODE_STATIC_LIGHT);  // Set to solid color mode
-    rgblight_sethsv(0, 0, 200);                 // Set to white (H:0, S:0, V:200)
+    rgblight_sethsv(0, 0, 51);                 // Set to white with brightness at 20%
 }
 
 // Change RGB color based on layer while preserving brightness
