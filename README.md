@@ -49,9 +49,9 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 ### Layer 2 (SYSTEM)
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-│     │     │VOL+ │     │RGB  │     │     │   │     │     │     │     │     │     │     │
+│     │     │VOL+ │     │RGB  │     │     │   │     │     │     │     │     │LOCK │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│     │ RW  │VOL- │ FF  │RGB+ │BRI+ │     │   │     │     │     │     │ LCK │     │     │
+│     │ RW  │VOL- │ FF  │RGB+ │BRI+ │     │   │     │     │     │     │     │SLEP │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
 │     │     │MUTE │     │RGB- │BRI- │     │   │     │     │     │     │     │     │     │
 └─────┴─────┴─────┴─────┼─────┼─────┤     │   │BOOT ├─────┼─────┼─────┴─────┴─────┴─────┘
@@ -66,6 +66,8 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 **Key Functions:**
 - **`QK_BOOT`** (thumb keys): Enter bootloader mode for firmware flashing
 - **`SFT/C`**: Tap for Shift, double-tap for Caps Lock (tap dance)
+- **`KC_LOCK`**: Sends macOS lock command (Cmd+Ctrl+Q)
+- **`KC_SLEP`**: Sleep function
 
 
 ## RGB Underglow
