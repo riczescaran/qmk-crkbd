@@ -77,7 +77,7 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 
 Dynamic RGB underglow changes color based on the active layer. The system preserves brightness levels when switching layers and automatically starts in solid white mode.
 
-![Demo Underglow](demo/underglow.gif)
+<img src="demo/underglow.gif" alt="Demo Underglow" width="350">
 
 *The demo above shows the RGB underglow changing colors when switching between layers - from white (BASE) to orange (NUMS) to blue (SYSTEM), providing visual feedback for the current active layer.*
 
