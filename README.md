@@ -12,6 +12,7 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 - **Mouse Keys** and **N-Key Rollover** support
 - **Tap Dance**: Double-tap shift for caps lock functionality
 - **Momentary Layer Access**: Hold-to-activate layer switching
+- **Layer Lock**: Lock into current layer with 1-minute auto-timeout
 
 ## Layer Overview
 
@@ -42,7 +43,7 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
 │SFT/C│     │     │     │     │     │     │   │     │  1! │  2@ │  3# │  `  │  \| │     │
 └─────┴─────┴─────┴─────┼─────┼─────┤ SPC │   │ ENT ├─────┼─────┼─────┴─────┴─────┴─────┘
-                        │CTRL │ GUI │     │   │     │     │  0) │
+                        │CTRL │LLCK │     │   │     │     │  0) │
                         └─────┴─────┴─────┘   └─────┴─────┴─────┘
 ```
 
@@ -55,19 +56,21 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
 │     │     │MUTE │     │RGB- │BRI- │     │   │     │     │     │     │     │     │     │
 └─────┴─────┴─────┴─────┼─────┼─────┤     │   │BOOT ├─────┼─────┼─────┴─────┴─────┴─────┘
-                        │     │     │     │   │     │     │     │
+                        │     │LLCK │     │   │     │     │     │
                         └─────┴─────┴─────┘   └─────┴─────┴─────┘
 ```
 
 **Layer Navigation:**
 - **MO(1)**: Hold to momentarily access NUMS layer
 - **MO(2)**: Hold to momentarily access SYSTEM layer
+- **QK_LLCK**: Lock into current layer
 
 **Key Functions:**
-- **`QK_BOOT`** (thumb keys): Enter bootloader mode for firmware flashing
+- **`BOOT`** (thumb keys): Enter bootloader mode for firmware flashing
 - **`SFT/C`**: Tap for Shift, double-tap for Caps Lock (tap dance)
-- **`KC_LOCK`**: Sends macOS lock command (Cmd+Ctrl+Q)
-- **`KC_SLEP`**: Sleep function
+- **`LOCK`**: Sends macOS lock command (Cmd+Ctrl+Q)
+- **`SLEP`**: Sleep function
+- **`LLCK`**: Layer lock toggle, auto-unlocks after 1 minute of inactivity
 
 
 ## RGB Underglow
@@ -93,6 +96,7 @@ Four encoders are supported with the following mappings:
 - **Encoder Resolution**: 4
 - **Dynamic Layers**: 3
 - **Tap Dance**: Double-tap shift → Caps Lock
+- **Layer Lock Timeout**: 1 minute (60 seconds)
 
 ## Installation
 

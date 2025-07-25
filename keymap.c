@@ -62,14 +62,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,     KC_NO,   KC_UP,   KC_NO,   KC_NO,    KC_NO,      KC_NO,            KC_NO,   KC_7,      KC_8,    KC_9,    KC_MINS, KC_EQL,  KC_BSPC,
         KC_TAB,    KC_LEFT, KC_DOWN, KC_RGHT, KC_NO,    KC_NO,      KC_NO,            KC_NO,   KC_4,      KC_5,    KC_6,    KC_LBRC, KC_RBRC, KC_NO,
         KX_SFCP,   KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,                                 KC_1,      KC_2,    KC_3,    KC_GRV,  KC_BSLS, KC_NO,
-                                              KC_LCTL,  KC_LGUI,    KC_SPC,           KC_ENT,  KC_NO,     KC_0
+                                              KC_LCTL,  QK_LLCK,    KC_SPC,           KC_ENT,  KC_NO,     KC_0
     ),
 
     [_SYSTEM] = LAYOUT_split_3x6_3_ex2(
         KC_NO,     KC_NO,   KC_VOLU, KC_NO,   RGB_TOG, KC_NO,      KC_NO,             KC_NO,   KC_NO,     KC_NO,   KC_NO,   KC_NO,   KX_LOCK, KC_NO,
         KC_NO,     KC_MRWD, KC_VOLD, KC_MFFD, RGB_VAI, KC_BRIU,    KC_NO,             KC_NO,   KC_NO,     KC_NO,   KC_NO,   KC_NO,   KC_SLEP, KC_NO,
         KC_NO,     KC_NO,   KC_MUTE, KC_NO,   RGB_VAD, KC_BRID,                                KC_NO,     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-                                              KC_NO,   KC_NO,      KC_NO,             QK_BOOT, KC_NO,     KC_NO
+                                              KC_NO,   QK_LLCK,    KC_NO,             QK_BOOT, KC_NO,     KC_NO
     )
 };
 

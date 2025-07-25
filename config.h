@@ -30,3 +30,6 @@
 #define MOUSEKEY_WHEEL_INTERVAL 80
 #define MOUSEKEY_WHEEL_MAX_SPEED 8
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 40
+
+// Layer lock settings
+#define LAYER_LOCK_IDLE_TIMEOUT 60000    // 1 minute timeout

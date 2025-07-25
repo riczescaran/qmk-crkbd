@@ -29,3 +29,6 @@ COMBO_ENABLE = no
 
 # Enable tap dance functionality
 TAP_DANCE_ENABLE = yes
+
+# Enable layer lock functionality
+LAYER_LOCK_ENABLE = yes
