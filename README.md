@@ -24,9 +24,9 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 ### Layer 0 (BASE)
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-│ ESC │  Q  │  W  │  E  │  R  │  T  │HOME │   │PGUP │  Y  │  U  │  I  │  O  │  P  │BSPC │
+│ ESC │  Q  │  W  │  E  │  R  │  T  │     │   │     │  Y  │  U  │  I  │  O  │  P  │BSPC │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ TAB │  A  │  S  │  D  │  F  │  G  │END  │   │PGDN │  H  │  J  │  K  │  L  │  ;: │ '"  │
+│ TAB │  A  │  S  │  D  │  F  │  G  │     │   │     │  H  │  J  │  K  │  L  │  ;: │ '"  │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
 │SFT/C│  Z  │  X  │  C  │  V  │  B  │     │   │     │  N  │  M  │  ,< │  .> │  /? │ ALT │
 └─────┴─────┴─────┴─────┼─────┼─────┤ SPC │   │ ENT ├─────┼─────┼─────┴─────┴─────┴─────┘
@@ -37,24 +37,24 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 ### Layer 1 (NUMS)
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-│     │     │  ↑  │     │     │     │     │   │     │  7& │  8* │  9( │  -_ │  =+ │BSPC │
+│     │     │  ↑  │     │PGUP │HOME │     │   │     │  7& │  8* │  9( │  -_ │  =+ │BSPC │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ TAB │  ←  │  ↓  │  →  │     │     │     │   │     │  4$ │  5% │  6^ │  [{ │  }] │     │
+│     │  ←  │  ↓  │  →  │PGDN │END  │     │   │     │  4$ │  5% │  6^ │  [{ │  }] │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
 │SFT/C│     │     │     │     │     │     │   │     │  1! │  2@ │  3# │  `  │  \| │     │
 └─────┴─────┴─────┴─────┼─────┼─────┤ SPC │   │ ENT ├─────┼─────┼─────┴─────┴─────┴─────┘
-                        │CTRL │LLCK │     │   │     │     │  0) │
+                        │     │LLCK │     │   │     │     │  0) │
                         └─────┴─────┴─────┘   └─────┴─────┴─────┘
 ```
 
 ### Layer 2 (SYSTEM)
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-│     │     │VOL+ │     │RGB  │     │     │   │     │     │     │     │     │LOCK │     │
+│     │MUTE │VOL- │VOL+ │ RW  │ FF  │     │   │     │     │     │     │     │LOCK │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│     │ RW  │VOL- │ FF  │RGB+ │BRI+ │     │   │     │     │     │     │     │SLEP │     │
+│     │RGB  │RGB- │RGB+ │     │     │     │   │     │     │     │     │     │SLEP │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │MUTE │     │RGB- │BRI- │     │   │     │     │     │     │     │     │     │
+│     │     │BRI- │BRI+ │     │     │     │   │     │     │     │     │     │     │     │
 └─────┴─────┴─────┴─────┼─────┼─────┤     │   │BOOT ├─────┼─────┼─────┴─────┴─────┴─────┘
                         │     │LLCK │     │   │     │     │     │
                         └─────┴─────┴─────┘   └─────┴─────┴─────┘
@@ -63,7 +63,7 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 **Layer Navigation:**
 - **MO(1)**: Hold to momentarily access NUMS layer
 - **MO(2)**: Hold to momentarily access SYSTEM layer
-- **QK_LLCK**: Lock into current layer
+- **LLCK**: Lock into current layer
 
 **Key Functions:**
 - **`BOOT`** (thumb keys): Enter bootloader mode for firmware flashing
@@ -77,7 +77,7 @@ This contains a custom QMK keymap for the Corne keyboard v4.1 (CRKBD). The keyma
 
 Dynamic RGB underglow changes color based on the active layer. The system preserves brightness levels when switching layers and automatically starts in solid white mode.
 
-<img src="demo/underglow.gif" alt="Demo Underglow" width="350">
+![Demo Underglow](demo/underglow.gif)
 
 *The demo above shows the RGB underglow changing colors when switching between layers - from white (BASE) to orange (NUMS) to blue (SYSTEM), providing visual feedback for the current active layer.*
 
